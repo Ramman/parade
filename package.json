@@ -1,0 +1,27 @@
+{
+  "name": "noderunner",
+  "version": "0.0.0",
+  "description": "About ======",
+  "main": "index.js",
+  "dependencies": {
+    "express": "~4.1.1",
+    "usage": "~0.3.9",
+    "async": "~0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://stash01.myfamilysouth.com/scm/fgv/noderunner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "readme": "About\n======\n\nCluster manager and process monitor for node.js applications.\n\nForkes multiple process depending on the number of cores available in the CPU.\n\nProvides web api in json to track status, memory and cpu for individual node processes and for servers.\n\n\nUsage\n======\n\nFormat : node [path to this module index.js file] [arguments]\n\n\nArguments:\n\nfirst argument - start file name of the application\nsecond argument - no. of clusters (optional, deafult = no. of cpu - 1)\n\nexample : node ./node_modules/noderunner/index.js app.js\n",
+  "readmeFilename": "README.md",
+  "_id": "noderunner@0.0.0",
+  "_shasum": "26618d1b9cb9cbde53c2d46f67f454cad0b12859",
+  "_resolved": "git+http://stash01.myfamilysouth.com/scm/fgv/noderunner.git#294821a7e9a26b54f210a4985dff493d1a76429d",
+  "_from": "nodeRunner@git+http://stash01.myfamilysouth.com/scm/fgv/noderunner.git"
+}
