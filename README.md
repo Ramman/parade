@@ -16,7 +16,8 @@ Format : node [path to this module index.js file] [arguments]
 
 Arguments:
 
-first argument - start file name of the application
+first argument - main filename of the application(file to start application)
+
 second argument - no. of clusters (optional, deafult = no. of cpu - 1)
 
 example : node ./node_modules/noderunner/index.js app.js
