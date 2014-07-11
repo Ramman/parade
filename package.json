@@ -1,6 +1,7 @@
 {
   "name": "noderunner",
   "version": "0.0.0",
+  "main": "index.js",
   "description": "About ======",
   "main": "index.js",
   "dependencies": {
@@ -12,6 +13,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin" : {
+    "noderunner": "./bin/noderunner"
+    },
   "repository": {
     "type": "git",
     "url": "http://stash01.myfamilysouth.com/scm/fgv/noderunner.git"
