@@ -5,6 +5,8 @@ Cluster manager and process monitor for node.js applications.
 
 Forkes multiple process depending on the number of cores available in the CPU.
 
+Automatically forks new worker on exception when 'disconnect' event gets called, which makes sure there is no downtime.
+
 Provides web api in json to track status, memory and cpu for individual node processes and for servers.
 
 
