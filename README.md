@@ -2,7 +2,7 @@
 
 Node runner is a cluster manager and also a process monitor for node.js applications.
 It forks multiple processes based on the number of cores available in the CPU
-and provides restful endpoints that data to track status, memory and cpu for individual node processes and servers.
+and provides restful endpoints that provide data to track status, memory and cpu for individual node processes and servers.
 
 ## Contributors
 * Prasanna Ramanujam <pramanujam@ancestry.com>
@@ -24,8 +24,20 @@ and provides restful endpoints that data to track status, memory and cpu for ind
 
 ### Examples:
 
+#### In your application
     $ node ./node_modules/noderunner/index.js app.js
     $ node ./node_modules/noderunner/index.js app.js 3
+
+#### To run an example in this module
+    $ node index.js ./example/app.js
+    $ node index.js ./example/app.js 2
+
+    Argument 2, worker file name: ./example/app.js
+    Number of process forks  : 3
+    node runner web api server running in 5667
+    Worker is online, Worker ID :  1
+    Worker is online, Worker ID :  2
+    Worker is online, Worker ID :  3
 
 ## Test it
     $ npm install
@@ -94,7 +106,7 @@ It gets metrics of all worker processes
 It gets the status of all worker processes
 
 #### Endpoint
-http://{yourhost}/status
+    http://{yourhost}/status
 
 #### Data
     {
