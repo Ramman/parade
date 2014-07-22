@@ -6,6 +6,6 @@ var usage = require('./lib/usage');
 
 var cluster = require("cluster");
 
-clusters();
+clusters(cluster);
 httpApi();
 usage();
