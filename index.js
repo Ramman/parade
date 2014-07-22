@@ -4,6 +4,8 @@ var httpApi = require('./lib/http_api');
 
 var usage = require('./lib/usage');
 
-clusters();
+var cluster = require("cluster");
+
+clusters(cluster);
 httpApi();
 usage();
