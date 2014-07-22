@@ -11,10 +11,10 @@ describe('cluster `tests', function(){
         var worker = {};
         worker.workerID = 1;
         worker.process = { pid: '3' };
-        cluster.on = function(eventType, callbackfn){
+        cluster.on = function(eventType, callback){
             if(eventType == 'online')
             {
-                callbackfn(worker);
+                callback(worker);
             }
         }
 
@@ -32,10 +32,10 @@ describe('cluster `tests', function(){
         worker.process = { pid: '3' };
 
         var disconnectEventCalled = false;
-        cluster.on = function(eventType, callbackfn){
+        cluster.on = function(eventType, callback){
             if(eventType == 'disconnect')
             {
-                callbackfn(worker);
+                callback(worker);
                 disconnectEventCalled = true;
             }
         }
@@ -51,10 +51,10 @@ describe('cluster `tests', function(){
         var worker = {};
         worker.workerID = 1;
         worker.process = { pid: '3' };
-        cluster.on = function(eventType, callbackfn){
+        cluster.on = function(eventType, callback){
             if(eventType == 'exit')
             {
-                callbackfn(worker, {}, {});
+                callback(worker, {}, {});
             }
         }
 
@@ -67,7 +67,7 @@ describe('cluster `tests', function(){
 function mockDependencies(){
     delete require.cache[require.resolve('../lib/clusters')];
     clusterObj = require('../lib/clusters');
-    process.argv = [1,1, 1, 1];
+    process.argv = [1, 1, 1, 1];
 
     cluster.fork = function(){
         var tempClusterObj = {};
