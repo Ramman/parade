@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Parade : Node runner repo" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Parade</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Ancestry/parade">View on GitHub</a>
+
+          <h1 id="project_title">Parade</h1>
+          <h2 id="project_tagline">Node runner repo</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Ancestry/parade/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Ancestry/parade/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="parade" class="anchor" href="#parade"><span class="octicon octicon-link"></span></a>parade</h1>
+
+<p>parade is a cluster manager and also a process monitor for node.js applications.
+It forks multiple processes based on the number of cores available in the CPU
+and provides restful endpoints that provide data to track status, memory and cpu for individual node processes and servers.</p>
+
+<h2>
+<a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h2>
+
+<ul>
+<li>Prasanna Ramanujam <a href="mailto:pramanujam@ancestry.com">pramanujam@ancestry.com</a>
+</li>
+</ul><h2>
+<a name="get-it" class="anchor" href="#get-it"><span class="octicon octicon-link"></span></a>Get it</h2>
+
+<pre><code>$ npm install parade --save-dev
+</code></pre>
+
+<h2>
+<a name="use-it" class="anchor" href="#use-it"><span class="octicon octicon-link"></span></a>Use it</h2>
+
+<h3>
+<a name="format" class="anchor" href="#format"><span class="octicon octicon-link"></span></a>Format:</h3>
+
+<pre><code>$ node &lt;index.js&gt; &lt;app.js&gt; [clusters]
+</code></pre>
+
+<h3>
+<a name="arguments" class="anchor" href="#arguments"><span class="octicon octicon-link"></span></a>Arguments:</h3>
+
+<ul>
+<li>index.js :  the path to the index.js file of this library</li>
+<li>app.js: the main js file of your application</li>
+<li>clusters (optional): # of clusters to fork. By default, it is set to (# of cores - 1)</li>
+</ul><h3>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<h4>
+<a name="in-your-application" class="anchor" href="#in-your-application"><span class="octicon octicon-link"></span></a>In your application</h4>
+
+<pre><code>$ node ./node_modules/parade/index.js app.js
+$ node ./node_modules/parade/index.js app.js 3
+</code></pre>
+
+<h4>
+<a name="to-run-an-example-in-this-module" class="anchor" href="#to-run-an-example-in-this-module"><span class="octicon octicon-link"></span></a>To run an example in this module</h4>
+
+<pre><code>$ node index.js ./example/app.js
+$ node index.js ./example/app.js 2
+
+Argument 2, worker file name: ./example/app.js
+Number of process forks  : 3
+parade web api server running in 5667
+Worker is online, Worker ID :  1
+Worker is online, Worker ID :  2
+Worker is online, Worker ID :  3
+</code></pre>
+
+<h2>
+<a name="test-it" class="anchor" href="#test-it"><span class="octicon octicon-link"></span></a>Test it</h2>
+
+<pre><code>$ npm install
+$ npm test
+</code></pre>
+
+<h2>
+<a name="rest-endpoints" class="anchor" href="#rest-endpoints"><span class="octicon octicon-link"></span></a>Rest Endpoints</h2>
+
+<h3>
+<a name="stats" class="anchor" href="#stats"><span class="octicon octicon-link"></span></a>Stats</h3>
+
+<p>It gets metrics of all worker processes</p>
+
+<h4>
+<a name="endpoint" class="anchor" href="#endpoint"><span class="octicon octicon-link"></span></a>endpoint</h4>
+
+<pre><code>http://{yourhost}/stats
+</code></pre>
+
+<h4>
+<a name="data" class="anchor" href="#data"><span class="octicon octicon-link"></span></a>data</h4>
+
+<pre><code>{
+  "processStats": [
+    {
+      "pid": 12335,
+      "memory": 39047168,
+      "cpu": 0
+    },
+    {
+      "pid": 12337,
+      "memory": 42954752,
+      "cpu": 0
+    }
+  ],
+  "osStats": {
+    "totalMem": 4009091072,
+    "freeMem": 1395204096,
+    "cpus": [
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz",
+        "speed": 2599,
+        "times": {
+          "user": 125852300,
+          "nice": 334700,
+          "sys": 59101600,
+          "idle": 108351690500,
+          "irq": 54764100
+        }
+      },
+      {
+        "model": "Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz",
+        "speed": 2599,
+        "times": {
+          "user": 57877800,
+          "nice": 343100,
+          "sys": 31694400,
+          "idle": 108823011800,
+          "irq": 0
+        }
+      }
+    ],
+    "loadAvg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 10986836.192939406,
+    "platform": "linux"
+  }
+}
+</code></pre>
+
+<h3>
+<a name="status" class="anchor" href="#status"><span class="octicon octicon-link"></span></a>Status</h3>
+
+<p>It gets the status of all worker processes</p>
+
+<h4>
+<a name="endpoint-1" class="anchor" href="#endpoint-1"><span class="octicon octicon-link"></span></a>Endpoint</h4>
+
+<pre><code>http://{yourhost}/status
+</code></pre>
+
+<h4>
+<a name="data-1" class="anchor" href="#data-1"><span class="octicon octicon-link"></span></a>Data</h4>
+
+<pre><code>{
+  "1": {
+    "workerID": 1,
+    "uniqueID": 1,
+    "process": 12335,
+    "status": "ONLINE"
+  },
+  "2": {
+    "workerID": 2,
+    "uniqueID": 2,
+    "process": 12337,
+    "status": "ONLINE"
+  }
+}
+</code></pre>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">The MIT License</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Parade maintained by <a href="https://github.com/Ancestry">Ancestry</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
