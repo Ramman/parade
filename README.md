@@ -1,6 +1,6 @@
-# Node Runner
+# parade
 
-Node runner is a cluster manager and also a process monitor for node.js applications.
+parade is a cluster manager and also a process monitor for node.js applications.
 It forks multiple processes based on the number of cores available in the CPU
 and provides restful endpoints that provide data to track status, memory and cpu for individual node processes and servers.
 
@@ -9,7 +9,7 @@ and provides restful endpoints that provide data to track status, memory and cpu
 
 ## Get it
 
-    $ npm install noderunner --save-dev
+    $ npm install parade --save-dev
 
 ## Use it
 ### Format:
@@ -25,8 +25,8 @@ and provides restful endpoints that provide data to track status, memory and cpu
 ### Examples:
 
 #### In your application
-    $ node ./node_modules/noderunner/index.js app.js
-    $ node ./node_modules/noderunner/index.js app.js 3
+    $ node ./node_modules/parade/index.js app.js
+    $ node ./node_modules/parade/index.js app.js 3
 
 #### To run an example in this module
     $ node index.js ./example/app.js
@@ -34,7 +34,7 @@ and provides restful endpoints that provide data to track status, memory and cpu
 
     Argument 2, worker file name: ./example/app.js
     Number of process forks  : 3
-    node runner web api server running in 5667
+    parade web api server running in 5667
     Worker is online, Worker ID :  1
     Worker is online, Worker ID :  2
     Worker is online, Worker ID :  3

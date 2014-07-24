@@ -1,7 +1,7 @@
 {
     "name": "parade",
-    "version": "0.0.0",
-    "description": "About ======",
+    "version": "1.0.0",
+    "description": "parade is a cluster manager and also a process monitor for node.js applications.",
     "main": "index.js",
     "dependencies": {
         "express": "~4.1.1",
@@ -19,18 +19,13 @@
         "test": "mocha"
     },
     "bin" : {
-        "noderunner": "./bin/noderunner"
+        "parade": "./bin/parade"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Ancestry/Parade.git"
+        "url": "https://github.com/Ancestry/parade.git"
     },
-    "author": "",
-    "license": "ISC",
-    "readme": "About\n======\n\nCluster manager and process monitor for node.js applications.\n\nForkes multiple process depending on the number of cores available in the CPU.\n\nProvides web api in json to track status, memory and cpu for individual node processes and for servers.\n\n\nUsage\n======\n\nFormat : node [path to this module index.js file] [arguments]\n\n\nArguments:\n\nfirst argument - start file name of the application\nsecond argument - no. of clusters (optional, deafult = no. of cpu - 1)\n\nexample : node ./node_modules/noderunner/index.js app.js\n",
-    "readmeFilename": "README.md",
-    "_id": "noderunner@0.0.0",
-    "_shasum": "26618d1b9cb9cbde53c2d46f67f454cad0b12859",
-    "_resolved": "git+http://stash01.myfamilysouth.com/scm/fgv/noderunner.git#294821a7e9a26b54f210a4985dff493d1a76429d",
-    "_from": "nodeRunner@git+http://stash01.myfamilysouth.com/scm/fgv/noderunner.git"
+    "author": "Prasanna Ramanujam <pramanujam@ancestry.com>",
+    "license": "MIT",
+    "readmeFilename": "README.md"
 }
