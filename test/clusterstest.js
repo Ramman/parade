@@ -4,78 +4,78 @@ var events = require("events");
 var clusterObj;
 var cluster = {};
 
-describe('cluster `tests', function(){
+describe('clusters tests', function() {
+
+    var clusterObj = {};
+    var cluster = {};
+    var worker = {};
+
+    beforeEach(function(done) {
+        delete require.cache[require.resolve('../lib/clusters')];
+        var clusters = require('../lib/clusters');
+
+        worker.workerID = 1;
+        worker.process = {
+            pid: '3'
+        };
+
+        process.argv[2] = [1];
+        process.argv[3] = 3;
+
+        cluster.fork = function() {
+            var tempClusterObj = {};
+            tempClusterObj.workerID = '1';
+
+            tempClusterObj.uniqueID = '1';
+            tempClusterObj.process = {
+                pid: '3'
+            };
+            return tempClusterObj;
+        };
+        cluster.setupMaster = function() {};
+        cluster.on = function(eventType, callback) {
+            if (eventType == 'online') {
+                callback(worker);
+            };
+        }
+        clusterObj = clusters(cluster);
+        done();
+    });
 
     it('should return cluster processes with status online', function(done) {
-        mockDependencies();
-        var worker = {};
-        worker.workerID = 1;
-        worker.process = { pid: '3' };
-        cluster.on = function(eventType, callback){
-            if(eventType == 'online')
-            {
-                callback(worker);
-            }
-        }
-
-        var result = clusterObj(cluster);
-        assert.equal(1, result.processes.length);
-        assert.equal(1, result.status[1].workerID);
-        assert.equal('ONLINE', result.status[1].status);
+        var clusterResultObj = clusterObj.initialize();
+        assert.equal(3, clusterResultObj.processes.length);
+        assert.equal(1, clusterResultObj.status[1].workerID);
+        assert.equal('ONLINE', clusterResultObj.status[1].status);
         done();
     });
 
     it('should fork again when disconnect event is called', function(done) {
-        mockDependencies();
-        var worker = {};
-        worker.workerID = 1;
-        worker.process = { pid: '3' };
 
         var disconnectEventCalled = false;
-        cluster.on = function(eventType, callback){
-            if(eventType == 'disconnect')
-            {
+        cluster.on = function(eventType, callback) {
+            console.log(eventType);
+            if (eventType == 'disconnect') {
                 callback(worker);
                 disconnectEventCalled = true;
             }
-        }
+        };
+        var clusterResultObj = clusterObj.initialize();
 
-        var result = clusterObj(cluster);
-        assert.equal(3, result.status[1].status);
         assert.equal(true, disconnectEventCalled);
         done();
     });
 
     it('should set status to died when exit event is called', function(done) {
-        mockDependencies();
-        var worker = {};
-        worker.workerID = 1;
-        worker.process = { pid: '3' };
-        cluster.on = function(eventType, callback){
-            if(eventType == 'exit')
-            {
+        cluster.on = function(eventType, callback) {
+            if (eventType == 'exit') {
                 callback(worker, {}, {});
             }
         }
 
-        var result = clusterObj(cluster);
-        assert.equal('DIED', result.status[1].status);
+        var clusterResultObj = clusterObj.initialize();
+        assert.equal('DIED', clusterResultObj.status[1].status);
         done();
     });
+
 });
-
-function mockDependencies(){
-    delete require.cache[require.resolve('../lib/clusters')];
-    clusterObj = require('../lib/clusters');
-    process.argv = [1, 1, 1, 1];
-
-    cluster.fork = function(){
-        var tempClusterObj = {};
-        tempClusterObj.workerID = '1';
-        tempClusterObj.uniqueID = '1';
-        tempClusterObj.process = { pid: '3' };
-        return tempClusterObj;
-    }
-
-    cluster.setupMaster = function(){ }
-}
