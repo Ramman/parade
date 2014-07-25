@@ -8,8 +8,8 @@ var cluster = require("cluster");
 
 var clusterObj = clusters(cluster);
 
-if(clusterObj.validateInput(process.argv[2])) {
-	clusterObj.initialize();
-	httpApi();
-	usage();
-}	
+if (clusterObj.validateInput(process.argv[2])) {
+    clusterObj.initialize();
+    httpApi();
+    usage();
+}
