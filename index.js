@@ -6,6 +6,10 @@ var usage = require('./lib/usage');
 
 var cluster = require("cluster");
 
-clusters(cluster);
-httpApi();
-usage();
+var clusterObj = clusters(cluster);
+
+if(clusterObj.validateInput(process.argv[2])) {
+	clusterObj.initialize();
+	httpApi();
+	usage();
+}	
