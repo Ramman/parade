@@ -1,6 +1,6 @@
 {
     "name": "parade",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "parade is a cluster manager and also a process monitor for node.js applications.",
     "main": "index.js",
     "dependencies": {
