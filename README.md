@@ -5,7 +5,8 @@ It forks multiple processes based on the number of cores available in the CPU
 and provides restful endpoints that provide data to track status, memory and cpu for individual node processes and servers.
 
 ## Contributors
-* Prasanna Ramanujam <pramanujam@ancestry.com>
+### Author
+Prasanna Ramanujam <pramanujam@ancestry.com>
 
 ## Get it
 
