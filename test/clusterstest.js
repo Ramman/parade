@@ -54,7 +54,6 @@ describe('clusters tests', function() {
 
         var disconnectEventCalled = false;
         cluster.on = function(eventType, callback) {
-            console.log(eventType);
             if (eventType == 'disconnect') {
                 callback(worker);
                 disconnectEventCalled = true;
