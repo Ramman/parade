@@ -9,28 +9,27 @@ and provides restful endpoints that provide data to track status, memory and cpu
 
 ## Get it
 
-    $ npm install parade --save-dev
+    $ npm install -g parade
 
 ## Use it
 ### Format:
 
-    $ node <index.js> <app.js> [clusters]
+    $ parade <app.js> [clusters]
 
 ### Arguments:
 
-* index.js :  the path to the index.js file of this library
 * app.js: the main js file of your application
 * clusters (optional): # of clusters to fork. By default, it is set to (# of cores - 1)
 
 ### Examples:
 
 #### In your application
-    $ node ./node_modules/parade/index.js app.js
-    $ node ./node_modules/parade/index.js app.js 3
+    $ parade app.js
+    $ parade app.js 3
 
 #### To run an example in this module
-    $ node index.js ./example/app.js
-    $ node index.js ./example/app.js 2
+    $ parade ./example/app.js
+    $ parade ./example/app.js 3
 
     Argument 2, worker file name: ./example/app.js
     Number of process forks  : 3
