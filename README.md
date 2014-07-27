@@ -15,24 +15,23 @@ and provides restful endpoints that provide data to track status, memory and cpu
 $ npm install -g parade
 ```
 ## Start the app
-### Format:
 
 ```bash
 $ parade <app.js> [clusters]
 ```
-### Arguments:
+### Arguments
 
 * app.js: the main js file of your application
 * clusters (optional): # of clusters to fork. By default, it is set to (# of cores - 1)
 
-### Examples:
+### Examples
 
-#### In your application
+#### To run your app
 ```bash
 $ parade app.js
 $ parade app.js 3
 ```
-#### To run an example in this module
+#### To run the example in this module
 ```bash
 $ parade ./example/app.js
 ```
