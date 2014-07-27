@@ -53,11 +53,14 @@ $ npm install
 $ npm test
 ```
 ## Rest Endpoints
+Start the app with parade and test the following rest end points
+```bash
+$ parade app.js
+```
 
 ### Stats
 It gets metrics of all worker processes
 
-#### Test
 [http://localhost:5667/stats](http://localhost:5667/stats)
 
 #### Sample result
@@ -114,8 +117,6 @@ It gets metrics of all worker processes
 ```
 ### Status
 It gets the status of all worker processes
-
-#### Test
 
 [http://localhost:5667/status](http://localhost:5667/status)
 
