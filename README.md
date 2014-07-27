@@ -58,7 +58,7 @@ $ npm test
 It gets metrics of all worker processes
 
 #### Test
-http://localhost:5667/stats
+[http://localhost:5667/stats](http://localhost:5667/stats)
 
 #### Sample result
 ```js
@@ -117,7 +117,7 @@ It gets the status of all worker processes
 
 #### Test
 
-http://localhost:5667/status
+[http://localhost:5667/status](http://localhost:5667/status)
 
 #### Sample result
 ```js
