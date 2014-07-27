@@ -4,6 +4,8 @@ parade is a cluster manager and also a process monitor for node.js applications.
 It forks multiple processes based on the number of cores available in the CPU
 and provides restful endpoints that provide data to track status, memory and cpu for individual node processes and servers.
 
+[![Build Status](https://travis-ci.org/ancestry/parade.svg?branch=master)](https://travis-ci.org/ancestry/parade)
+
 ## Contributors
 ### Author
 Prasanna Ramanujam <pramanujam@ancestry.com>
