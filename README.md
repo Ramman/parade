@@ -7,9 +7,6 @@ and provides restful endpoints that provide data to track status, memory and cpu
 [![NPM Version](https://badge.fury.io/js/parade.svg)](https://badge.fury.io/for/js/parade)
 [![Build Status](https://travis-ci.org/Ancestry/parade.svg?branch=master)](https://travis-ci.org/Ancestry/parade)
 
-## Contributors
-* Author: Prasanna Ramanujam <pramanujam@ancestry.com>
-
 ## Installation
 ```bash
 $ npm install -g parade
@@ -136,6 +133,11 @@ It gets the status of all worker processes
   }
 }
 ```
+
+
+## Credits
+* [Prasanna Ramanujam](http://github.com/Prasanna-sr)
+
 ## License
 
-[The MIT License](http://opensource.org/licenses/MIT)
+ [The MIT License](http://opensource.org/licenses/MIT)
